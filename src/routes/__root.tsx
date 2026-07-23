@@ -89,19 +89,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "AI Solutions" },
       {
         property: "og:title",
-        content: "AI Solutions — أتمتة أعمال بالذكاء الاصطناعي",
+        content: "AI Solutions — أتمتة أعمال ووكلاء ذكاء اصطناعي مبنية على n8n",
       },
       {
         property: "og:description",
         content:
-          "حلول n8n مخصصة، وكلاء ذكاء اصطناعي، Dashboards وتصميم مواقع — بدون فريق تقني داخلي.",
+          "AI Solutions تبني أنظمة أتمتة أعمال ووكلاء ذكاء اصطناعي مخصصة على n8n، مع Dashboards ومواقع ويب لتحويل عملياتك اليدوية إلى نظام يشتغل لوحده.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AI Solutions — أتمتة أعمال ووكلاء ذكاء اصطناعي مبنية على n8n" },
+      { name: "twitter:description", content: "AI Solutions تبني أنظمة أتمتة أعمال ووكلاء ذكاء اصطناعي مخصصة على n8n، مع Dashboards ومواقع ويب لتحويل عملياتك اليدوية إلى نظام يشتغل لوحده." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/KtqGVkh2ZOQmeKb7IKlh7rKzoS92/social-images/social-1784851075497-28a93424-7f55-4fdb-a7a3-577d45c4ebec.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/KtqGVkh2ZOQmeKb7IKlh7rKzoS92/social-images/social-1784851075497-28a93424-7f55-4fdb-a7a3-577d45c4ebec.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
