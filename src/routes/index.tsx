@@ -15,16 +15,26 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       <AmbientBackground />
       <Navbar />
       <main>
-        <Reveal><Hero /></Reveal>
-        <Reveal><Proof /></Reveal>
-        <Reveal><Services /></Reveal>
-        <Reveal><Process /></Reveal>
-        <Reveal><CaseStudies /></Reveal>
-        <Reveal><Contact /></Reveal>
+        <Hero />
+        <Reveal>
+          <Proof />
+        </Reveal>
+        <Reveal>
+          <Services />
+        </Reveal>
+        <Reveal>
+          <Process />
+        </Reveal>
+        <Reveal>
+          <CaseStudies />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
     </div>
   );

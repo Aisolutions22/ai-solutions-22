@@ -86,3 +86,52 @@
   .sig-dot-anim { animation: none !important; right: 100% !important; }
   .sig-fill-anim { animation: none !important; width: 100% !important; }
 }
+
+/* Ambient background: subtle living grid + drifting glows */
+.ambient-grid {
+  background-image: radial-gradient(var(--manual) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.06;
+  animation: ambient-drift 60s linear infinite;
+}
+.ambient-glow {
+  filter: blur(90px);
+  opacity: 0.14;
+  animation: ambient-float 24s ease-in-out infinite alternate;
+}
+.ambient-glow-a { background: var(--accent); }
+.ambient-glow-b { background: var(--manual); animation-duration: 28s; animation-delay: -9s; }
+
+@keyframes ambient-drift {
+  from { background-position: 0 0; }
+  to { background-position: 340px 340px; }
+}
+@keyframes ambient-float {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-40px, 30px); }
+}
+
+/* Hero network signature (bigger variant) */
+.sig-path-anim {
+  animation: sig-path 4.5s linear infinite;
+}
+@keyframes sig-path {
+  from { stroke-dashoffset: 500; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Scroll reveal for sections */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 550ms ease, transform 550ms ease;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-grid, .ambient-glow, .sig-path-anim { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
