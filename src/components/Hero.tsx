@@ -1,5 +1,5 @@
 import { ArrowLeft } from "lucide-react";
-import { SignatureDivider } from "./SignatureDivider";
+import { HeroSignature } from "./HeroSignature";
 
 export function Hero() {
   return (
@@ -38,8 +38,8 @@ export function Hero() {
         </div>
 
         <div className="mt-16">
-          <SignatureDivider />
-          <div className="mt-3 flex justify-between max-w-md mx-auto text-[11px] font-mono uppercase tracking-widest">
+          <HeroSignature />
+          <div className="mt-3 flex justify-between max-w-2xl mx-auto text-[11px] font-mono uppercase tracking-widest">
             <span className="text-accent">Automated</span>
             <span className="text-manual">Manual</span>
           </div>
@@ -48,3 +48,4 @@ export function Hero() {
     </section>
   );
 }
+

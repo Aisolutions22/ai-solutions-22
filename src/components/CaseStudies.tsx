@@ -112,8 +112,9 @@ export function CaseStudies() {
             <button
               key={c.id}
               onClick={() => setOpen(c.id)}
-              className="group text-start rounded-2xl border border-border bg-card p-6 hover:border-foreground/40 transition-colors"
+              className="group text-start rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_12px_30px_-12px_rgba(232,89,12,0.25)]"
             >
+
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                   {c.sector}

@@ -49,8 +49,9 @@ export function Services() {
           {services.map((s) => (
             <article
               key={s.title}
-              className="group relative rounded-2xl border border-border bg-card p-6 hover:border-foreground/40 transition-colors"
+              className="group relative rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_12px_30px_-12px_rgba(232,89,12,0.25)]"
             >
+
               <div className="flex items-center justify-between">
                 <div className="h-11 w-11 rounded-xl bg-foreground text-background grid place-items-center">
                   <s.icon size={20} strokeWidth={1.75} />
