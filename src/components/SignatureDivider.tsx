@@ -1,3 +1,50 @@
+const HERO_NODES: [number, number][] = [
+  [20, 60],
+  [110, 32],
+  [200, 44],
+  [290, 22],
+  [380, 26],
+];
+const HERO_PATH = "M20,60 C90,20 140,70 200,44 C260,18 310,55 380,26";
+
+export function HeroNetwork({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 400 80"
+      className={`w-full max-w-lg mx-auto ${className}`}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="sig-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="var(--manual)" />
+          <stop offset="100%" stopColor="var(--accent)" />
+        </linearGradient>
+      </defs>
+      <path d={HERO_PATH} fill="none" stroke="var(--border)" strokeWidth="1" />
+      <path
+        d={HERO_PATH}
+        fill="none"
+        stroke="url(#sig-grad)"
+        strokeWidth="1.5"
+        strokeDasharray="6 494"
+        className="sig-path-anim"
+      />
+      {HERO_NODES.map(([x, y], i) => {
+        const isLast = i === HERO_NODES.length - 1;
+        return (
+          <circle
+            key={`${x}-${y}`}
+            cx={x}
+            cy={y}
+            r={isLast ? 5 : 3.5}
+            fill={isLast ? "var(--accent)" : "var(--manual)"}
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
 export function SignatureDivider({ className = "" }: { className?: string }) {
   return (
     <div

@@ -1,5 +1,5 @@
 import { ArrowLeft } from "lucide-react";
-import { HeroSignature } from "./HeroSignature";
+import { HeroNetwork } from "./SignatureDivider";
 
 export function Hero() {
   return (
@@ -18,7 +18,7 @@ export function Hero() {
 
         <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
           أنظمة أتمتة ووكلاء ذكاء اصطناعي مصممة خصيصاً لشركتك، مبنية على n8n
-          — بدون فريق تقني داخلي
+          — بدون فريق تقني داخلي.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -38,14 +38,13 @@ export function Hero() {
         </div>
 
         <div className="mt-16">
-          <HeroSignature />
-          <div className="mt-3 flex justify-between max-w-2xl mx-auto text-[11px] font-mono uppercase tracking-widest">
-            <span className="text-accent">Automated</span>
+          <HeroNetwork />
+          <div className="mt-3 flex justify-between max-w-lg mx-auto text-[11px] font-mono uppercase tracking-widest">
             <span className="text-manual">Manual</span>
+            <span className="text-accent">Automated</span>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
