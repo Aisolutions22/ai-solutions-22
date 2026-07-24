@@ -18,7 +18,7 @@ export function Hero() {
 
         <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
           أنظمة أتمتة ووكلاء ذكاء اصطناعي مصممة خصيصاً لشركتك، مبنية على n8n
-          — بدون فريق تقني داخلي.
+          — بدون فريق تقني داخلي
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
