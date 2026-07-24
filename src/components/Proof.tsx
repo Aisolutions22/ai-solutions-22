@@ -1,3 +1,5 @@
+import { CountUp } from "./CountUp";
+
 const stats = [
   { value: "+15", label: "مشروع مكتمل" },
   { value: "+10", label: "قطاع صناعي" },
@@ -12,7 +14,7 @@ export function Proof() {
         {stats.map((s) => (
           <div key={s.label} className="text-center md:text-start">
             <div className="font-mono text-3xl sm:text-4xl font-medium text-foreground tabular-nums">
-              {s.value}
+              <CountUp value={s.value} />
             </div>
             <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
           </div>

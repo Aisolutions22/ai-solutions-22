@@ -6,6 +6,8 @@ import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { CaseStudies } from "@/components/CaseStudies";
 import { Contact } from "@/components/Contact";
+import { AmbientBackground } from "@/components/AmbientBackground";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -13,15 +15,16 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
+      <AmbientBackground />
       <Navbar />
       <main>
-        <Hero />
-        <Proof />
-        <Services />
-        <Process />
-        <CaseStudies />
-        <Contact />
+        <Reveal><Hero /></Reveal>
+        <Reveal><Proof /></Reveal>
+        <Reveal><Services /></Reveal>
+        <Reveal><Process /></Reveal>
+        <Reveal><CaseStudies /></Reveal>
+        <Reveal><Contact /></Reveal>
       </main>
     </div>
   );
