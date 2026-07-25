@@ -103,7 +103,7 @@ function ServiceNotFound() {
 }
 
 function ServicePage() {
-  const { service } = Route.useLoaderData();
+  const { service } = Route.useLoaderData() as { service: import("@/lib/content").Service };
   const Icon = iconMap[service.icon];
   const related = cases
     .filter((c) => c.stack.includes(service.relatedTag))
@@ -143,7 +143,7 @@ function ServicePage() {
             / لمين الخدمة دي
           </div>
           <ul className="mt-4 space-y-3">
-            {service.audience.map((a) => (
+            {service.audience.map((a: string) => (
               <li
                 key={a}
                 className="flex items-start gap-3 rounded-xl bg-foreground/[0.03] p-4"
@@ -160,7 +160,7 @@ function ServicePage() {
             / إزاي بنشتغل
           </div>
           <ol className="mt-4 grid gap-4 sm:grid-cols-2">
-            {service.process.map((p, i) => (
+            {service.process.map((p: { title: string; desc: string }, i: number) => (
               <li
                 key={p.title}
                 className="rounded-2xl border border-border bg-card p-5"
@@ -184,7 +184,7 @@ function ServicePage() {
             / أسئلة شائعة
           </div>
           <Accordion type="single" collapsible className="mt-4">
-            {service.faq.map((f, i) => (
+            {service.faq.map((f: { q: string; a: string }, i: number) => (
               <AccordionItem key={f.q} value={`item-${i}`}>
                 <AccordionTrigger className="text-start text-foreground font-medium">
                   {f.q}
