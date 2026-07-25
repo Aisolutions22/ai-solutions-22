@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://ai-solutions-22.lovable.app";
+const BASE_URL = "https://aisolutions22.cloud";
 
 const serviceSlugs = ["n8n-automation", "ai-agents", "dashboards", "web-development"];
 const caseSlugs = ["retail-ops", "clinic-ai", "b2b-dashboard"];
