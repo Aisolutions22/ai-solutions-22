@@ -19,6 +19,8 @@
   --color-border: var(--border);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-panel: var(--panel);
+  --color-panel-foreground: var(--panel-foreground);
   --color-primary: var(--accent);
   --color-primary-foreground: var(--accent-foreground);
   --color-ring: var(--accent);
@@ -37,8 +39,10 @@
   --accent-foreground: #ffffff;
   --manual: #8a8680;
   --border: #e5e4e0;
-  --card: #14181c;
-  --card-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #14181c;
+  --panel: #14181c;
+  --panel-foreground: #ffffff;
 }
 
 .dark {
@@ -51,6 +55,8 @@
   --border: #2a2f35;
   --card: #1b2026;
   --card-foreground: #f5f4f1;
+  --panel: #1b2026;
+  --panel-foreground: #f5f4f1;
 }
 
 
