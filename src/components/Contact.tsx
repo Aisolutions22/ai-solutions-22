@@ -48,16 +48,16 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="relative rounded-3xl bg-card text-card-foreground p-8 sm:p-12 overflow-hidden">
+          <div className="relative rounded-3xl bg-panel text-panel-foreground p-8 sm:p-12 overflow-hidden">
             <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full opacity-30 blur-3xl" style={{ background: "var(--accent)" }} aria-hidden="true" />
             <div className="relative">
-              <div className="font-mono text-xs text-card-foreground/60 uppercase tracking-widest">
+              <div className="font-mono text-xs text-panel-foreground/60 uppercase tracking-widest">
                 {d.contact.cardSection}
               </div>
               <h3 className="mt-3 font-display font-bold text-3xl sm:text-4xl leading-tight">
                 {d.contact.cardH3}
               </h3>
-              <p className="mt-4 text-card-foreground/70 leading-relaxed">{d.contact.cardDesc}</p>
+              <p className="mt-4 text-panel-foreground/70 leading-relaxed">{d.contact.cardDesc}</p>
               <a
                 href={`mailto:hello@aisolutions22.cloud?subject=${encodeURIComponent(d.contact.mailSubject)}`}
                 className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition"
@@ -65,7 +65,7 @@ export function Contact() {
                 {d.contact.cardCta}
                 <ArrowLeft size={18} />
               </a>
-              <div className="mt-8 pt-6 border-t border-card-foreground/10 flex items-center gap-6 font-mono text-xs text-card-foreground/50">
+              <div className="mt-8 pt-6 border-t border-panel-foreground/10 flex items-center gap-6 font-mono text-xs text-panel-foreground/50">
                 <span>{d.contact.cardFoot1}</span>
                 <span>•</span>
                 <span>{d.contact.cardFoot2}</span>
