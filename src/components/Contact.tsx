@@ -1,4 +1,5 @@
 import { ArrowLeft, Mail, MessageCircle, Linkedin } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export function Contact() {
   return (
@@ -7,26 +8,21 @@ export function Contact() {
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <div className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
-              / من نحن
+              / تواصل
             </div>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">
-              نبني الأنظمة اللي بتخلي الشركات تشتغل لوحدها
+              خلينا نتكلم
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              AI Solutions فريق متخصص في أتمتة الأعمال ووكلاء الذكاء الاصطناعي.
-              بدأنا لأننا شفنا شركات كتير تضيّع وقتها في مهام يدوية ممكن يعملها
-              نظام واحد ذكي. مهمتنا: نحوّل تعقيد التشغيل إلى نظام واضح يشتغل
-              بذكاء وبدون فريق تقني داخلي.
+              اختر القناة الأنسب ليك ونرد عليك خلال 24 ساعة كحد أقصى.
             </p>
-            <a
-              href="https://mali.aisolutions22.cloud"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/about"
               className="mt-6 inline-flex items-center gap-2 text-accent font-semibold hover:opacity-80"
             >
-              تعرّف على المؤسس
+              اعرف قصتنا كاملة
               <ArrowLeft size={16} />
-            </a>
+            </Link>
 
             <div className="mt-10 space-y-3">
               <a

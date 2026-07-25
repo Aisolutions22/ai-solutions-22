@@ -8,6 +8,7 @@ const links: NavLink[] = [
   { href: "/services", label: "الخدمات" },
   { href: "/#process", label: "آلية العمل" },
   { href: "/case-studies", label: "دراسات الحالة", external: false },
+  { href: "/about", label: "من نحن" },
   { href: "/#contact", label: "تواصل" },
 ];
 
