@@ -1,3 +1,5 @@
+import { useLocale } from "@/lib/i18n";
+
 const HERO_NODES: [number, number][] = [
   [20, 60],
   [110, 32],
@@ -8,10 +10,15 @@ const HERO_NODES: [number, number][] = [
 const HERO_PATH = "M20,60 C90,20 140,70 200,44 C260,18 310,55 380,26";
 
 export function HeroNetwork({ className = "" }: { className?: string }) {
+  const locale = useLocale();
+  const base =
+    locale === "ar"
+      ? "w-full max-w-lg mx-auto [transform:scaleX(-1)]"
+      : "w-full max-w-lg mx-auto";
   return (
     <svg
       viewBox="0 0 400 80"
-      className={`w-full max-w-lg mx-auto ${className}`}
+      className={`${base} ${className}`}
       aria-hidden="true"
     >
       <defs>
