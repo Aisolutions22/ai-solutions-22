@@ -31,7 +31,7 @@ export function CaseStudyPage({ slug }: { slug: string }) {
           ))}
         </div>
 
-        <div className="mt-10 aspect-video rounded-xl bg-card grid place-items-center text-card-foreground/70">
+        <div className="mt-10 aspect-video rounded-xl bg-panel grid place-items-center text-panel-foreground/70">
           <div className="flex flex-col items-center gap-2">
             <div className="h-12 w-12 rounded-full bg-accent grid place-items-center">
               <Play size={20} className="text-accent-foreground translate-x-[-2px]" />

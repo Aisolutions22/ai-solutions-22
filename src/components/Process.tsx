@@ -4,13 +4,13 @@ import { useDict } from "@/lib/i18n";
 export function Process() {
   const d = useDict();
   return (
-    <section id="process" className="bg-card text-card-foreground py-20 sm:py-28">
+    <section id="process" className="bg-panel text-panel-foreground py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="max-w-2xl">
-          <div className="font-mono text-xs text-card-foreground/60 uppercase tracking-widest">
+          <div className="font-mono text-xs text-panel-foreground/60 uppercase tracking-widest">
             {d.process.section}
           </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-card-foreground">
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-panel-foreground">
             {d.process.h2}
           </h2>
         </div>
@@ -22,16 +22,16 @@ export function Process() {
                 <span className="font-mono text-3xl font-medium text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="h-px flex-1 bg-card-foreground/15" />
+                <span className="h-px flex-1 bg-panel-foreground/15" />
               </div>
-              <h3 className="mt-5 font-display font-semibold text-xl text-card-foreground">
+              <h3 className="mt-5 font-display font-semibold text-xl text-panel-foreground">
                 {s.title}
               </h3>
-              <p className="mt-2 text-sm text-card-foreground/65 leading-relaxed">
+              <p className="mt-2 text-sm text-panel-foreground/65 leading-relaxed">
                 {s.desc}
               </p>
               {i < d.process.steps.length - 1 && (
-                <span className="hidden lg:block absolute top-4 -left-3 h-2 w-2 rounded-full bg-card-foreground/20" />
+                <span className="hidden lg:block absolute top-4 -left-3 h-2 w-2 rounded-full bg-panel-foreground/20" />
               )}
             </li>
           ))}
