@@ -150,9 +150,18 @@
   transform: translateY(0);
 }
 
+@keyframes tool-badge-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.tool-badge-dot {
+  animation: tool-badge-pulse 2.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ambient-grid, .ambient-glow, .sig-path-anim { animation: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .tool-badge-dot { animation: none !important; opacity: 1 !important; }
 }
 
 /* English locale font overrides — Inter for display + body */

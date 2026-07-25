@@ -3,6 +3,26 @@ import type { Locale } from "./i18n";
 type LS = { ar: string; en: string };
 type LSA = { ar: string[]; en: string[] };
 
+export type Tool = { name: string; color: string };
+
+export const TOOL_COLORS: Record<string, string> = {
+  n8n: "#EA4B71",
+  OpenAI: "#10A37F",
+  OpenRouter: "#6467F2",
+  Supabase: "#3ECF8E",
+  Messenger: "#0084FF",
+  Instagram: "linear-gradient(135deg,#F58529,#DD2A7B,#8134AF)",
+  "WhatsApp Business API": "#25D366",
+  Telegram: "#26A5E4",
+  Apify: "#FF9012",
+  Apollo: "#9B51E0",
+  "Google Maps": "#4285F4",
+  LinkedIn: "#0A66C2",
+};
+
+const t = (names: string[]): Tool[] =>
+  names.map((n) => ({ name: n, color: TOOL_COLORS[n] ?? "#8A8680" }));
+
 export type CaseStudy = {
   id: string;
   sector: string;
@@ -10,6 +30,13 @@ export type CaseStudy = {
   summary: string;
   stack: string[];
   impact: string;
+  tools: Tool[];
+  challenge?: string;
+  solutionSteps?: string[];
+  videoUrl?: string;
+  imageUrl?: string;
+  featured?: { label: string };
+  isDemo?: boolean;
 };
 
 type CaseStudyRaw = {
@@ -19,58 +46,307 @@ type CaseStudyRaw = {
   summary: LS;
   stack: string[];
   impact: LS;
+  tools: Tool[];
+  challenge?: LS;
+  solutionSteps?: LSA;
+  videoUrl?: string;
+  imageUrl?: string;
+  featured?: LS;
+  isDemo?: boolean;
 };
 
 const casesRaw: CaseStudyRaw[] = [
   {
-    id: "retail-ops",
+    id: "lead-generation-engine",
+    sector: { ar: "مبيعات B2B", en: "B2B Sales" },
+    title: {
+      ar: "محرك توليد العملاء المحتملين",
+      en: "Lead generation engine",
+    },
+    summary: {
+      ar: "من ساعات بحث يدوي إلى قاعدة عملاء محتملين جاهزة تلقائياً كل صباح.",
+      en: "From hours of manual research to a ready lead list delivered automatically every morning.",
+    },
+    challenge: {
+      ar: "فرق المبيعات تقضي ساعات يومياً في البحث اليدوي عن بيانات العملاء المحتملين وتجميعها من مصادر متفرقة، مع نسبة أخطاء وتكرار عالية.",
+      en: "Sales teams spend hours daily manually searching and aggregating lead data from scattered sources, with high rates of errors and duplicates.",
+    },
+    solutionSteps: {
+      ar: [
+        "استخراج نشط من خرائط جوجل ولينكدإن حسب معايير القطاع والموقع الجغرافي.",
+        "إثراء البيانات (Enrichment) عبر Apollo وApify لاستخلاص بيانات التواصل والشركة بدقة.",
+        "تنقية القوائم وإزالة التكرار تلقائياً قبل التسليم.",
+        "تسليم قائمة عملاء جاهزة يومياً مباشرة إلى نظام إدارة العلاقات أو جدول بيانات موحّد.",
+      ],
+      en: [
+        "Active extraction from Google Maps and LinkedIn based on industry and geographic criteria.",
+        "Data enrichment via Apollo and Apify to accurately retrieve contact and company information.",
+        "Automatic list cleaning and deduplication before delivery.",
+        "Daily delivery of a ready lead list directly to the CRM or a unified spreadsheet.",
+      ],
+    },
+    stack: ["n8n", "Apify", "Apollo", "API"],
+    tools: t(["n8n", "Apify", "Apollo", "Google Maps", "LinkedIn"]),
+    impact: {
+      ar: "قاعدة عملاء محتملين نظيفة ومحدّثة تصل يومياً دون أي بحث يدوي.",
+      en: "A clean, up-to-date lead base delivered daily with zero manual research.",
+    },
+  },
+  {
+    id: "ai-sales-agent-instagram-messenger",
     sector: { ar: "تجارة تجزئة", en: "Retail" },
     title: {
-      ar: "أتمتة الطلبات والمخزون لمتجر متعدد الفروع",
-      en: "Order & inventory automation for a multi-branch retailer",
+      ar: "وكيل مبيعات ذكاء اصطناعي — إنستجرام وماسنجر",
+      en: "AI sales agent — Instagram & Messenger",
     },
     summary: {
-      ar: "ربط WhatsApp Business بنظام المخزون و CRM، مع وكيل AI للرد على الاستفسارات وتأهيل العملاء تلقائياً.",
-      en: "Connected WhatsApp Business to inventory and CRM, with an AI agent handling inquiries and qualifying leads automatically.",
+      ar: "رد فوري وذكي على كل استفسار عميل، بالنص والصوت والصورة، على مدار الساعة.",
+      en: "Instant, intelligent replies to every customer inquiry — text, voice, and image — around the clock.",
     },
-    stack: ["n8n", "WhatsApp API", "AI Agent"],
+    challenge: {
+      ar: "العملاء يتواصلون عبر رسائل نصية وصوتية وصور على إنستجرام وماسنجر، والرد اليدوي لا يواكب حجم الرسائل أو سرعة توقّع العميل.",
+      en: "Customers reach out via text, voice, and image messages on Instagram and Messenger, and manual replies can't keep up with the volume or the customer's speed expectations.",
+    },
+    solutionSteps: {
+      ar: [
+        "استقبال الرسائل بجميع أنواعها (نص، صوت، صورة) من إنستجرام وماسنجر عبر واجهة موحّدة.",
+        "تحويل الرسائل الصوتية إلى نص، وتحليل الصور المرسلة (منتج، استفسار مرئي، فاتورة).",
+        "بناء الرد من بيانات العميل الفعلية (المنتجات، الأسعار، السياسات)، لا من إجابات عامة جاهزة.",
+        "تصعيد المحادثات المعقدة لفريق بشري تلقائياً عند الحاجة.",
+      ],
+      en: [
+        "Receive all message types (text, voice, image) from Instagram and Messenger through a unified interface.",
+        "Transcribe voice messages and analyze sent images (product, visual inquiry, invoice).",
+        "Build responses from the client's real data (products, prices, policies) — not generic canned replies.",
+        "Automatically escalate complex conversations to a human team when needed.",
+      ],
+    },
+    stack: ["n8n", "AI Agent"],
+    tools: t(["n8n", "OpenAI", "OpenRouter", "Supabase", "Messenger", "Instagram"]),
     impact: {
-      ar: "قلّل الوقت اليدوي بنسبة كبيرة على فريق التشغيل.",
-      en: "Cut manual work on the operations team significantly.",
+      ar: "استجابة على مدار الساعة لكل قناة اجتماعية بأسلوب الشركة نفسه.",
+      en: "24/7 response across every social channel — in the company's own voice.",
     },
   },
   {
-    id: "clinic-ai",
+    id: "whatsapp-business-sales-agent",
+    sector: { ar: "تجارة تجزئة", en: "Retail" },
+    title: {
+      ar: "وكيل مبيعات واتساب بزنس API",
+      en: "WhatsApp Business API sales agent",
+    },
+    summary: {
+      ar: "نظام واحد حلّ محل فريق مبيعات كامل من خمسة موظفين.",
+      en: "A single system that replaced an entire five-person sales team.",
+    },
+    challenge: {
+      ar: "فريق مبيعات مكوّن من 5 أفراد يعمل يدوياً على واتساب بزنس، بتكلفة تشغيلية مرتفعة وسرعة استجابة غير متسقة بين الموظفين.",
+      en: "A five-person sales team operating manually on WhatsApp Business, with high operating costs and inconsistent response speed across staff.",
+    },
+    solutionSteps: {
+      ar: [
+        "استيعاب كل أنواع الرسائل (نص، صوت، صورة) عبر واتساب بزنس API مباشرة.",
+        "فهم نية العميل وسياق المحادثة الكاملة، لا الرد على كل رسالة بمعزل عن سابقاتها.",
+        "توليد ردود مخصصة وإتمام دورة المبيعات كاملة، من الاستفسار الأول حتى تأكيد الطلب.",
+        "النتيجة التشغيلية الموثّقة: استغناء العميل عن خمس وظائف مبيعات يدوية بالكامل.",
+      ],
+      en: [
+        "Ingest all message types (text, voice, image) directly through the WhatsApp Business API.",
+        "Understand customer intent and full conversation context — not reply to each message in isolation.",
+        "Generate tailored responses and complete the full sales cycle from first inquiry to order confirmation.",
+        "Documented operational outcome: the client fully retired five manual sales roles.",
+      ],
+    },
+    stack: ["n8n", "AI Agent", "API"],
+    tools: t(["n8n", "OpenAI", "OpenRouter", "Supabase", "WhatsApp Business API"]),
+    impact: {
+      ar: "نظام واحد يغطي دورة المبيعات الكاملة على واتساب بدل فريق من خمسة موظفين.",
+      en: "One system covers the full WhatsApp sales cycle in place of a five-person team.",
+    },
+    featured: {
+      ar: "نظام مباع ويُعرض Live في n8n Meetup Cairo",
+      en: "Sold & live — showcased at n8n Meetup Cairo",
+    },
+  },
+  {
+    id: "telegram-study-assistant",
+    sector: { ar: "تعليم", en: "Education" },
+    title: {
+      ar: "المساعد الدراسي على تيليجرام",
+      en: "Telegram study assistant",
+    },
+    summary: {
+      ar: "من ملف PDF دراسي إلى درس تفاعلي وتقييم فوري يصل لولي الأمر.",
+      en: "From a study PDF to an interactive lesson and an instant report delivered to the parent.",
+    },
+    challenge: {
+      ar: "متابعة استيعاب الطالب لمحتوى تعليمي تقليدي (ملف PDF) تستهلك وقتاً كبيراً من الأهل، بدون قياس فعلي لمستوى الفهم.",
+      en: "Following a student's understanding of traditional PDF study material eats up parents' time with no real measurement of comprehension.",
+    },
+    solutionSteps: {
+      ar: [
+        "رفع ملف PDF مباشرة عبر تيليجرام.",
+        "تحويل المحتوى تلقائياً إلى شرح مبسّط وأسئلة تفاعلية.",
+        "تقييم إجابات الطالب فور إرسالها.",
+        "إرسال تقرير أداء بعد كل درس مباشرة إلى ولي الأمر.",
+      ],
+      en: [
+        "Upload a PDF directly through Telegram.",
+        "Automatically transform the content into a simplified explanation and interactive questions.",
+        "Grade student answers the moment they're submitted.",
+        "Send a performance report after each lesson directly to the parent.",
+      ],
+    },
+    stack: ["n8n", "AI Agent"],
+    tools: t(["n8n", "OpenAI", "Telegram"]),
+    impact: {
+      ar: "درس تفاعلي كامل + تقرير أداء لكل جلسة دراسة، تلقائياً.",
+      en: "A full interactive lesson plus a per-session performance report — automatically.",
+    },
+    isDemo: true,
+  },
+  {
+    id: "dental-clinic-automation",
     sector: { ar: "قطاع طبي", en: "Healthcare" },
     title: {
-      ar: "وكيل حجوزات ذكي لعيادة متعددة الأطباء",
-      en: "Smart booking agent for a multi-doctor clinic",
+      ar: "أتمتة عيادة الأسنان",
+      en: "Dental clinic automation",
     },
     summary: {
-      ar: "وكيل AI يستقبل الحجوزات على مدار الساعة، يتحقق من التوفر، ويرسل تذكيرات تلقائية للمرضى.",
-      en: "An AI agent that takes bookings 24/7, checks availability, and sends automatic reminders to patients.",
+      ar: "حجز وتذكير ومتابعة مرضى بالكامل، بدون عبء إداري يومي.",
+      en: "End-to-end booking, reminders, and patient follow-up — without a daily admin burden.",
     },
-    stack: ["AI Agent", "Calendar", "n8n"],
+    challenge: {
+      ar: "إدارة يدوية للحجوزات والتذكيرات ومتابعة المرضى تستهلك وقت الفريق الإداري وتزيد حالات عدم الحضور غير المُتابَعة.",
+      en: "Manual handling of bookings, reminders, and patient follow-up drains the admin team's time and increases untracked no-shows.",
+    },
+    solutionSteps: {
+      ar: [
+        "استقبال طلبات الحجز من القنوات المختلفة وتنسيقها في تقويم موحّد.",
+        "تذكيرات تلقائية للمرضى قبل الموعد بوقت كافٍ.",
+        "متابعة ما بعد الزيارة (تعليمات العناية، مواعيد المتابعة).",
+        "تقليل حالات عدم الحضور عبر التذكير الذكي متعدد المراحل.",
+      ],
+      en: [
+        "Receive booking requests from multiple channels and unify them in a single calendar.",
+        "Automatic patient reminders well ahead of the appointment.",
+        "Post-visit follow-up (care instructions, next appointments).",
+        "Reduce no-shows through smart, multi-stage reminders.",
+      ],
+    },
+    stack: ["n8n", "WhatsApp"],
+    tools: t(["n8n", "Supabase", "WhatsApp Business API"]),
     impact: {
-      ar: "غطاء استقبال 24/7 بدون توظيف إضافي.",
-      en: "24/7 reception coverage without additional hires.",
+      ar: "تشغيل إداري كامل للعيادة يعمل تلقائياً على مدار اليوم.",
+      en: "The clinic's admin operations run themselves throughout the day.",
     },
   },
   {
-    id: "b2b-dashboard",
-    sector: { ar: "خدمات B2B", en: "B2B Services" },
+    id: "meeting-transcription-automation",
+    sector: { ar: "إنتاجية", en: "Productivity" },
     title: {
-      ar: "Dashboard تشغيلي موحّد لفريق المبيعات",
-      en: "Unified operations dashboard for a sales team",
+      ar: "تسجيل وتفريغ الاجتماعات",
+      en: "Meeting recording & transcription",
     },
     summary: {
-      ar: "لوحة تحكم لحظية تجمع بيانات المبيعات والتشغيل من عدة مصادر في مكان واحد.",
-      en: "A real-time dashboard aggregating sales and operations data from multiple sources in one place.",
+      ar: "كل اجتماع يتحول تلقائياً إلى ملخص وقرارات ومهام موزّعة.",
+      en: "Every meeting turns automatically into a summary, decisions, and assigned tasks.",
     },
-    stack: ["Dashboard", "n8n", "API"],
+    challenge: {
+      ar: "محاضر الاجتماعات تُكتب يدوياً أو تُهمل بالكامل، والقرارات المتخذة تضيع بدون متابعة فعلية لتنفيذها.",
+      en: "Meeting minutes are written manually or skipped entirely, and decisions get lost without real follow-through.",
+    },
+    solutionSteps: {
+      ar: [
+        "تسجيل الاجتماع وتفريغه نصياً تلقائياً فور انتهائه.",
+        "استخلاص القرارات والمهام وتحديد المسؤول عن كل مهمة.",
+        "توزيع الملخص على جميع المشاركين تلقائياً.",
+        "متابعة حالة تنفيذ كل مهمة حتى إغلاقها.",
+      ],
+      en: [
+        "Automatically record and transcribe the meeting the moment it ends.",
+        "Extract decisions and tasks and assign an owner to each one.",
+        "Distribute the summary to all participants automatically.",
+        "Track each task's execution status through to closure.",
+      ],
+    },
+    stack: ["n8n", "AI Agent"],
+    tools: t(["n8n", "OpenAI", "Supabase"]),
     impact: {
-      ar: "قرارات يومية أسرع اعتماداً على بيانات موحّدة.",
-      en: "Faster daily decisions driven by unified data.",
+      ar: "ملخص وقرارات ومهام موزعة بعد كل اجتماع، دون كتابة يدوية.",
+      en: "Summary, decisions, and assigned tasks after every meeting — with no manual note-taking.",
+    },
+  },
+  {
+    id: "contracts-risk-management",
+    sector: { ar: "قانوني", en: "Legal" },
+    title: {
+      ar: "إدارة العقود والمخاطر التعاقدية",
+      en: "Contracts & contractual risk management",
+    },
+    summary: {
+      ar: "رصد المخاطر التعاقدية قبل أن تتحول إلى خسارة مالية فعلية.",
+      en: "Detect contractual risks before they become an actual financial loss.",
+    },
+    challenge: {
+      ar: "عقود الشركات الكبرى تحمل بنوداً قد تهدد هوامش الربح، ومراجعتها يدوياً بطيئة وعرضة للخطأ البشري في العقود طويلة أو المعقّدة.",
+      en: "Enterprise contracts carry clauses that can threaten profit margins, and manual review is slow and error-prone on long or complex agreements.",
+    },
+    solutionSteps: {
+      ar: [
+        "تحليل نصوص العقود تلقائياً فور رفعها للنظام.",
+        "رصد البنود عالية الخطورة (غرامات، التزامات مفتوحة، تواريخ حرجة).",
+        "تنبيه الفريق المعني بمواعيد التجديد أو الانتهاء مسبقاً.",
+        "إصدار تقرير مخاطر مركزي لكل عقد.",
+      ],
+      en: [
+        "Automatically analyze contract text as soon as it's uploaded.",
+        "Flag high-risk clauses (penalties, open-ended obligations, critical dates).",
+        "Alert the relevant team about renewal or expiry dates in advance.",
+        "Produce a centralized risk report per contract.",
+      ],
+    },
+    stack: ["n8n", "AI Agent"],
+    tools: t(["n8n", "OpenAI", "Supabase"]),
+    impact: {
+      ar: "رؤية مبكرة لكل بند عالي الخطورة قبل توقيع العقد أو تجديده.",
+      en: "Early visibility on every high-risk clause before signing or renewing.",
+    },
+  },
+  {
+    id: "orders-inventory-automation",
+    sector: { ar: "تجارة تجزئة", en: "Retail" },
+    title: {
+      ar: "أتمتة الطلبات والمخزون",
+      en: "Orders & inventory automation",
+    },
+    summary: {
+      ar: "مستوى المخزون والطلبات يدير نفسه بنفسه.",
+      en: "Stock levels and orders that run themselves.",
+    },
+    challenge: {
+      ar: "تتبع الطلبات ومستويات المخزون يدوياً يؤدي لحالات نفاد مفاجئ أو تكدّس غير مرصود، وتأخر في اتخاذ قرار إعادة الطلب.",
+      en: "Manual tracking of orders and stock levels causes sudden stock-outs or undetected overstock and delays reorder decisions.",
+    },
+    solutionSteps: {
+      ar: [
+        "مزامنة الطلبات الواردة مع نظام المخزون تلقائياً فور حدوثها.",
+        "تنبيهات فورية عند اقتراب أي صنف من حد النفاد.",
+        "إعادة طلب تلقائية حسب حدود مُعرَّفة مسبقاً لكل صنف.",
+        "تقرير حركة مخزون دوري لصاحب القرار.",
+      ],
+      en: [
+        "Sync incoming orders with the inventory system automatically the moment they occur.",
+        "Instant alerts when any item approaches its stock-out threshold.",
+        "Automatic reordering based on predefined thresholds per item.",
+        "Periodic stock-movement report for the decision-maker.",
+      ],
+    },
+    stack: ["n8n", "Dashboard"],
+    tools: t(["n8n", "Supabase"]),
+    impact: {
+      ar: "مخزون وطلبات يديران نفسيهما مع رؤية لحظية للحركة.",
+      en: "Stock and orders that manage themselves with real-time visibility.",
     },
   },
 ];
@@ -83,6 +359,13 @@ export function getCases(locale: Locale): CaseStudy[] {
     summary: c.summary[locale],
     stack: c.stack,
     impact: c.impact[locale],
+    tools: c.tools,
+    challenge: c.challenge?.[locale],
+    solutionSteps: c.solutionSteps?.[locale],
+    videoUrl: c.videoUrl,
+    imageUrl: c.imageUrl,
+    featured: c.featured ? { label: c.featured[locale] } : undefined,
+    isDemo: c.isDemo,
   }));
 }
 
@@ -93,6 +376,7 @@ export function getCaseBySlug(slug: string, locale: Locale): CaseStudy | undefin
 export function caseExists(slug: string): boolean {
   return casesRaw.some((c) => c.id === slug);
 }
+
 
 export type ServiceIcon = "Workflow" | "Bot" | "LayoutDashboard" | "Globe";
 
