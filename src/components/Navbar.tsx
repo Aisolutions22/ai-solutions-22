@@ -17,7 +17,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center justify-between gap-6">
         <a
-          href="#top"
+          href="/#top"
           className="font-display font-bold text-lg tracking-tight text-foreground shrink-0"
         >
           AI Solutions
@@ -35,7 +35,7 @@ export function Navbar() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden sm:inline-flex items-center h-10 px-5 rounded-full bg-accent text-accent-foreground text-sm font-semibold hover:opacity-90 transition"
           >
             احجز استشارة
@@ -64,7 +64,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="sm:hidden inline-flex items-center justify-center h-11 px-5 rounded-full bg-accent text-accent-foreground font-semibold"
             >
