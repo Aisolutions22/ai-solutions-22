@@ -100,7 +100,7 @@ function CaseStudyPage() {
         </p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
-          {study.stack.map((t) => (
+          {study.stack.map((t: string) => (
             <span
               key={t}
               className="font-mono text-[10px] px-2 py-1 rounded-md bg-foreground/5 text-foreground"
