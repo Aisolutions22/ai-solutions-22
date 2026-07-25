@@ -37,8 +37,8 @@
   --accent-foreground: #ffffff;
   --manual: #8a8680;
   --border: #e5e4e0;
-  --card: #ffffff;
-  --card-foreground: #14181c;
+  --card: #14181c;
+  --card-foreground: #ffffff;
 }
 
 .dark {
