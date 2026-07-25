@@ -52,7 +52,7 @@ export function alternatePath(pathname: string): { ar: string; en: string } {
   return { ar: pathname, en };
 }
 
-export const SITE_ORIGIN = "https://ai-solutions-22.lovable.app";
+export const SITE_ORIGIN = "https://aisolutions22.cloud";
 
 /**
  * Emit hreflang link tags for a given canonical AR path.

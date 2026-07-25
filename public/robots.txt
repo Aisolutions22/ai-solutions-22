@@ -46,4 +46,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://ai-solutions-22.lovable.app/sitemap.xml
+Sitemap: https://aisolutions22.cloud/sitemap.xml
