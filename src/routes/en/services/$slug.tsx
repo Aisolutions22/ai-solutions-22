@@ -3,7 +3,7 @@ import { serviceExists, getServiceBySlug } from "@/lib/content";
 import { hreflangLinks, SITE_ORIGIN } from "@/lib/i18n";
 import { ServicePage, ServiceNotFoundPage } from "@/pages/ServicePage";
 
-export const Route = createFileRoute("/services/$slug")({
+export const Route = createFileRoute("/en/services/$slug")({
   loader: ({ params }) => {
     if (!serviceExists(params.slug)) throw notFound();
     return { slug: params.slug };
@@ -12,14 +12,14 @@ export const Route = createFileRoute("/services/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "الخدمة غير موجودة | AI Solutions" },
+          { title: "Service not found | AI Solutions" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
-    const service = getServiceBySlug(params.slug, "ar")!;
-    const path = `/services/${service.slug}`;
-    const url = SITE_ORIGIN + path;
+    const service = getServiceBySlug(params.slug, "en")!;
+    const arPath = `/services/${service.slug}`;
+    const url = SITE_ORIGIN + "/en" + arPath;
     return {
       meta: [
         { title: `${service.title} — ${service.heroTitle} | AI Solutions` },
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/services/$slug")({
       ],
       links: [
         { rel: "canonical", href: url },
-        ...hreflangLinks(path),
+        ...hreflangLinks(arPath),
       ],
       scripts: [
         {

@@ -3,7 +3,7 @@ import { caseExists, getCaseBySlug } from "@/lib/content";
 import { hreflangLinks, SITE_ORIGIN } from "@/lib/i18n";
 import { CaseStudyPage, CaseStudyNotFoundPage } from "@/pages/CaseStudyPage";
 
-export const Route = createFileRoute("/case-studies/$slug")({
+export const Route = createFileRoute("/en/case-studies/$slug")({
   loader: ({ params }) => {
     if (!caseExists(params.slug)) throw notFound();
     return { slug: params.slug };
@@ -12,17 +12,17 @@ export const Route = createFileRoute("/case-studies/$slug")({
     if (!loaderData) {
       return {
         meta: [
-          { title: "دراسة الحالة غير موجودة | AI Solutions" },
+          { title: "Case study not found | AI Solutions" },
           { name: "robots", content: "noindex" },
         ],
       };
     }
-    const study = getCaseBySlug(params.slug, "ar")!;
-    const path = `/case-studies/${study.id}`;
-    const url = SITE_ORIGIN + path;
+    const study = getCaseBySlug(params.slug, "en")!;
+    const arPath = `/case-studies/${study.id}`;
+    const url = SITE_ORIGIN + "/en" + arPath;
     return {
       meta: [
-        { title: `${study.title} — دراسة حالة | AI Solutions` },
+        { title: `${study.title} — Case study | AI Solutions` },
         { name: "description", content: study.summary },
         { property: "og:title", content: study.title },
         { property: "og:description", content: study.summary },
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/case-studies/$slug")({
       ],
       links: [
         { rel: "canonical", href: url },
-        ...hreflangLinks(path),
+        ...hreflangLinks(arPath),
       ],
     };
   },
