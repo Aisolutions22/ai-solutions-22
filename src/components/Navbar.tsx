@@ -1,16 +1,30 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+
 import { useRouterState } from "@tanstack/react-router";
 import { useLocale, useDict, localizeHref, alternatePath } from "@/lib/i18n";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const locale = useLocale();
   const d = useDict();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const alt = alternatePath(pathname);
   const other = locale === "ar" ? alt.en : alt.ar;
   const otherLabel = locale === "ar" ? d.langSwitch.toEn : d.langSwitch.toAr;
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try { localStorage.setItem("theme", next ? "dark" : "light"); } catch {}
+  };
+
 
   const links = [
     { href: localizeHref("/services", locale), label: d.nav.services },
@@ -48,6 +62,15 @@ export function Navbar() {
           >
             {otherLabel}
           </a>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <a
             href={ctaHref}
             className="hidden sm:inline-flex items-center h-10 px-5 rounded-full bg-accent text-accent-foreground text-sm font-semibold hover:opacity-90 transition"

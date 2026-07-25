@@ -131,9 +131,11 @@ function RootShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const locale = localeFromPath(pathname);
   const isEn = locale === "en";
+  const themeInit = `(function(){try{var s=localStorage.getItem('theme');var m=window.matchMedia('(prefers-color-scheme: dark)').matches;var d=s?s==='dark':m;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
   return (
     <html lang={isEn ? "en" : "ar"} dir={isEn ? "ltr" : "rtl"}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <HeadContent />
       </head>
       <body>
@@ -143,6 +145,7 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
 
 
 function RootComponent() {
