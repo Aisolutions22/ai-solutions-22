@@ -57,7 +57,7 @@ export function Navbar() {
           <a
             href={other}
             hrefLang={locale === "ar" ? "en" : "ar"}
-            className="font-mono text-xs tracking-widest text-muted-foreground hover:text-foreground transition-colors px-2 py-1"
+            className="h-10 min-w-10 px-2 inline-flex items-center justify-center rounded-full font-mono text-xs text-muted-foreground hover:bg-foreground/5 hover:text-foreground transition-colors"
             aria-label={otherLabel}
           >
             {otherLabel}
@@ -65,7 +65,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            className="h-10 w-10 inline-flex items-center justify-center rounded-full text-muted-foreground hover:bg-foreground/5 hover:text-foreground transition-colors"
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -79,7 +79,7 @@ export function Navbar() {
           </a>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 -mr-2"
+            className="md:hidden h-10 w-10 inline-flex items-center justify-center rounded-full hover:bg-foreground/5 transition-colors"
             aria-label={d.nav.menu}
             aria-expanded={open}
           >
@@ -91,7 +91,7 @@ export function Navbar() {
         <div className="md:hidden border-t border-border bg-background">
           <nav className="flex flex-col px-5 py-4 gap-4 text-sm">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-1">
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 px-2 -mx-2 rounded-lg hover:bg-foreground/5 active:bg-foreground/10 transition-colors">
                 {l.label}
               </a>
             ))}
