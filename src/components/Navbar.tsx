@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+
 import { useRouterState } from "@tanstack/react-router";
 import { useLocale, useDict, localizeHref, alternatePath } from "@/lib/i18n";
 
