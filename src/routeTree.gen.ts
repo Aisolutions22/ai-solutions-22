@@ -12,9 +12,15 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as EnIndexRouteImport } from './routes/en/index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
+import { Route as EnAboutRouteImport } from './routes/en/about'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies/$slug'
+import { Route as EnServicesIndexRouteImport } from './routes/en/services/index'
+import { Route as EnCaseStudiesIndexRouteImport } from './routes/en/case-studies/index'
+import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
+import { Route as EnCaseStudiesSlugRouteImport } from './routes/en/case-studies/$slug'
 
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
@@ -31,6 +37,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/case-studies/',
   path: '/case-studies/',
@@ -41,9 +52,34 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnAboutRoute = EnAboutRouteImport.update({
+  id: '/en/about',
+  path: '/en/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/case-studies/$slug',
   path: '/case-studies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesIndexRoute = EnServicesIndexRouteImport.update({
+  id: '/en/services/',
+  path: '/en/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnCaseStudiesIndexRoute = EnCaseStudiesIndexRouteImport.update({
+  id: '/en/case-studies/',
+  path: '/en/case-studies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesSlugRoute = EnServicesSlugRouteImport.update({
+  id: '/en/services/$slug',
+  path: '/en/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnCaseStudiesSlugRoute = EnCaseStudiesSlugRouteImport.update({
+  id: '/en/case-studies/$slug',
+  path: '/en/case-studies/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -51,26 +87,44 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/en/about': typeof EnAboutRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/en/': typeof EnIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/en/case-studies/$slug': typeof EnCaseStudiesSlugRoute
+  '/en/services/$slug': typeof EnServicesSlugRoute
+  '/en/case-studies/': typeof EnCaseStudiesIndexRoute
+  '/en/services/': typeof EnServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/en/about': typeof EnAboutRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
+  '/en': typeof EnIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/en/case-studies/$slug': typeof EnCaseStudiesSlugRoute
+  '/en/services/$slug': typeof EnServicesSlugRoute
+  '/en/case-studies': typeof EnCaseStudiesIndexRoute
+  '/en/services': typeof EnServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/en/about': typeof EnAboutRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
+  '/en/': typeof EnIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/en/case-studies/$slug': typeof EnCaseStudiesSlugRoute
+  '/en/services/$slug': typeof EnServicesSlugRoute
+  '/en/case-studies/': typeof EnCaseStudiesIndexRoute
+  '/en/services/': typeof EnServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -78,34 +132,58 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/case-studies/$slug'
+    | '/en/about'
     | '/services/$slug'
     | '/case-studies/'
+    | '/en/'
     | '/services/'
+    | '/en/case-studies/$slug'
+    | '/en/services/$slug'
+    | '/en/case-studies/'
+    | '/en/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/case-studies/$slug'
+    | '/en/about'
     | '/services/$slug'
     | '/case-studies'
+    | '/en'
     | '/services'
+    | '/en/case-studies/$slug'
+    | '/en/services/$slug'
+    | '/en/case-studies'
+    | '/en/services'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/case-studies/$slug'
+    | '/en/about'
     | '/services/$slug'
     | '/case-studies/'
+    | '/en/'
     | '/services/'
+    | '/en/case-studies/$slug'
+    | '/en/services/$slug'
+    | '/en/case-studies/'
+    | '/en/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  EnAboutRoute: typeof EnAboutRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  EnIndexRoute: typeof EnIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  EnCaseStudiesSlugRoute: typeof EnCaseStudiesSlugRoute
+  EnServicesSlugRoute: typeof EnServicesSlugRoute
+  EnCaseStudiesIndexRoute: typeof EnCaseStudiesIndexRoute
+  EnServicesIndexRoute: typeof EnServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -131,6 +209,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/': {
       id: '/case-studies/'
       path: '/case-studies'
@@ -145,11 +230,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/about': {
+      id: '/en/about'
+      path: '/en/about'
+      fullPath: '/en/about'
+      preLoaderRoute: typeof EnAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/case-studies/$slug'
       fullPath: '/case-studies/$slug'
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services/': {
+      id: '/en/services/'
+      path: '/en/services'
+      fullPath: '/en/services/'
+      preLoaderRoute: typeof EnServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/case-studies/': {
+      id: '/en/case-studies/'
+      path: '/en/case-studies'
+      fullPath: '/en/case-studies/'
+      preLoaderRoute: typeof EnCaseStudiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services/$slug': {
+      id: '/en/services/$slug'
+      path: '/en/services/$slug'
+      fullPath: '/en/services/$slug'
+      preLoaderRoute: typeof EnServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/case-studies/$slug': {
+      id: '/en/case-studies/$slug'
+      path: '/en/case-studies/$slug'
+      fullPath: '/en/case-studies/$slug'
+      preLoaderRoute: typeof EnCaseStudiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -159,9 +279,15 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  EnAboutRoute: EnAboutRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  EnIndexRoute: EnIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  EnCaseStudiesSlugRoute: EnCaseStudiesSlugRoute,
+  EnServicesSlugRoute: EnServicesSlugRoute,
+  EnCaseStudiesIndexRoute: EnCaseStudiesIndexRoute,
+  EnServicesIndexRoute: EnServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
