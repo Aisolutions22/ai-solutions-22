@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
-const links = [
-  { href: "#services", label: "الخدمات" },
-  { href: "#process", label: "آلية العمل" },
-  { href: "#cases", label: "دراسات الحالة" },
-  { href: "#contact", label: "تواصل" },
+type NavLink = { href: string; label: string; external?: boolean };
+
+const links: NavLink[] = [
+  { href: "/#services", label: "الخدمات" },
+  { href: "/#process", label: "آلية العمل" },
+  { href: "/case-studies", label: "دراسات الحالة", external: false },
+  { href: "/#contact", label: "تواصل" },
 ];
 
 export function Navbar() {
