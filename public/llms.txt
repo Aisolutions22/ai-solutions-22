@@ -1,0 +1,33 @@
+# AI Solutions
+
+> AI Solutions builds custom business automation systems and AI agents on n8n — including dashboards and web apps — to turn manual operations into systems that run on their own.
+
+AI Solutions is a business-automation studio specializing in n8n workflows, AI agents, operational dashboards, and web/app development. We serve SMBs and operations teams across multiple sectors and countries, delivering tailored automations rather than off-the-shelf tools. The site is available in Arabic (default) and English.
+
+## Core pages
+- [Home (Arabic)](/): Overview of services, proof, process, case studies, and contact.
+- [Home (English)](/en): English version of the homepage.
+- [About](/about): Founding story, differentiators, sectors served, and founder link (Arabic).
+- [About (English)](/en/about): English version of the About page.
+
+## Services
+- [Services index (Arabic)](/services): All four service lines.
+- [Services index (English)](/en/services): English version.
+- [n8n Automation](/services/n8n-automation): Custom n8n workflow automation for operations, sales, and back-office processes.
+- [AI Agents](/services/ai-agents): Custom AI agents for support, lead qualification, and internal ops.
+- [Dashboards](/services/dashboards): Operational dashboards that consolidate data from tools and workflows.
+- [Web Development](/services/web-development): Marketing sites and lightweight web apps tied to automations.
+- [n8n Automation (EN)](/en/services/n8n-automation)
+- [AI Agents (EN)](/en/services/ai-agents)
+- [Dashboards (EN)](/en/services/dashboards)
+- [Web Development (EN)](/en/services/web-development)
+
+## Case studies
+- [Case studies index (Arabic)](/case-studies): All published case studies.
+- [Case studies index (English)](/en/case-studies): English version.
+- [Retail operations automation](/case-studies/retail-ops): WhatsApp + inventory + CRM automation with an AI agent for a multi-branch retailer.
+- [Clinic AI assistant](/case-studies/clinic-ai): AI-driven patient intake and scheduling assistant.
+- [B2B operations dashboard](/case-studies/b2b-dashboard): Unified operations dashboard for a B2B company.
+- [Retail case (EN)](/en/case-studies/retail-ops)
+- [Clinic case (EN)](/en/case-studies/clinic-ai)
+- [B2B dashboard case (EN)](/en/case-studies/b2b-dashboard)
