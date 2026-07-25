@@ -163,10 +163,6 @@ const casesRaw: CaseStudyRaw[] = [
       ar: "نظام واحد يغطي دورة المبيعات الكاملة على واتساب بدل فريق من خمسة موظفين.",
       en: "One system covers the full WhatsApp sales cycle in place of a five-person team.",
     },
-    featured: {
-      ar: "نظام مباع ويُعرض Live في n8n Meetup Cairo",
-      en: "Sold & live — showcased at n8n Meetup Cairo",
-    },
   },
   {
     id: "telegram-study-assistant",
