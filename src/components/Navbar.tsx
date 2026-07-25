@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 type NavLink = { href: string; label: string; external?: boolean };
 
 const links: NavLink[] = [
-  { href: "/#services", label: "الخدمات" },
+  { href: "/services", label: "الخدمات" },
   { href: "/#process", label: "آلية العمل" },
   { href: "/case-studies", label: "دراسات الحالة", external: false },
   { href: "/#contact", label: "تواصل" },
