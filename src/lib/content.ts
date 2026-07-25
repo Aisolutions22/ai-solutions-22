@@ -199,7 +199,10 @@ const casesRaw: CaseStudyRaw[] = [
       ar: "درس تفاعلي كامل + تقرير أداء لكل جلسة دراسة، تلقائياً.",
       en: "A full interactive lesson plus a per-session performance report — automatically.",
     },
-    isDemo: true,
+    featured: {
+      ar: "يُعرض Live هذا الأسبوع في n8n Meetup Cairo",
+      en: "Presented live this week at n8n Meetup Cairo",
+    },
   },
   {
     id: "dental-clinic-automation",
@@ -420,7 +423,7 @@ const servicesRaw: ServiceRaw[] = [
       ar: [
         "شركات بتكرر نفس المهمة اليدوية عشرات المرات في اليوم (إدخال بيانات، نقل معلومات بين نظامين، متابعة طلبات).",
         "فرق مبيعات أو تشغيل بتضيع وقتها في نسخ ولصق بين أدوات مختلفة.",
-        "أصحاب أعمال عندهم أنظمة (CRM, WhatsApp Business, Google Sheets) بس مش متكلمة مع بعضها.",
+        "أصحاب أعمال لديهم أنظمة (CRM, WhatsApp Business, Google Sheets) لكنها لا تتواصل فيما بينها.",
       ],
       en: [
         "Companies repeating the same manual task dozens of times a day (data entry, moving info between two systems, order follow-up).",
@@ -431,7 +434,7 @@ const servicesRaw: ServiceRaw[] = [
     process: [
       { title: { ar: "اكتشاف", en: "Discovery" }, desc: { ar: "نراجع عملياتك الحالية ونحدد أكتر مهمة بتاخد وقت.", en: "We review your current operations and identify the biggest time sinks." } },
       { title: { ar: "رسم الـ workflow", en: "Workflow design" }, desc: { ar: "نصمم مسار الأتمتة بشكل مرئي وواضح قبل أي تنفيذ.", en: "We design the automation path visually and clearly before any implementation." } },
-      { title: { ar: "بناء واختبار", en: "Build & test" }, desc: { ar: "تنفيذ فعلي على بياناتك الحقيقية، مش بيانات تجريبية.", en: "Real implementation on your live data, not test data." } },
+      { title: { ar: "بناء واختبار", en: "Build & test" }, desc: { ar: "تنفيذ فعلي على بياناتك الحقيقية، لا على بيانات تجريبية.", en: "Real implementation on your live data, not test data." } },
       { title: { ar: "تسليم ومتابعة", en: "Handoff & follow-up" }, desc: { ar: "تدريب فريقك على مراقبة الـ workflow ومعالجة أي استثناء.", en: "Training your team to monitor the workflow and handle any exception." } },
     ],
     faq: [
@@ -453,9 +456,9 @@ const servicesRaw: ServiceRaw[] = [
     },
     audience: {
       ar: [
-        "شركات بتستقبل استفسارات متكررة على واتساب أو الموقع وموظفينها مش قادرين يردوا بسرعة كافية.",
-        "عيادات أو خدمات بتحتاج استقبال حجوزات على مدار الساعة.",
-        "فرق مبيعات عايزة تأهيل leads قبل ما توصل لموظف بشري.",
+        "شركات تستقبل استفسارات متكررة على واتساب أو الموقع، ولا يستطيع فريقها الرد بالسرعة الكافية.",
+        "عيادات أو خدمات تحتاج إلى استقبال الحجوزات على مدار الساعة.",
+        "فرق مبيعات ترغب في تأهيل العملاء المحتملين قبل وصولهم إلى موظف بشري.",
       ],
       en: [
         "Companies receiving repetitive inquiries on WhatsApp or the site where staff can't respond fast enough.",
@@ -464,7 +467,7 @@ const servicesRaw: ServiceRaw[] = [
       ],
     },
     process: [
-      { title: { ar: "تحديد الشخصية", en: "Define the persona" }, desc: { ar: "نبني صوت الوكيل بأسلوب شركتك، مش رد آلي عام.", en: "We craft the agent's voice in your company's style, not a generic bot reply." } },
+      { title: { ar: "تحديد الشخصية", en: "Define the persona" }, desc: { ar: "نبني صوت الوكيل بأسلوب شركتك الخاص، لا رداً آلياً عاماً.", en: "We craft the agent's voice in your company's style, not a generic bot reply." } },
       { title: { ar: "تدريب على بياناتك", en: "Train on your data" }, desc: { ar: "أسئلة العملاء الشائعة، منتجاتك، سياساتك.", en: "Common customer questions, your products, your policies." } },
       { title: { ar: "ربط بالقنوات", en: "Channel integration" }, desc: { ar: "واتساب، الموقع، أو أي قناة تواصل تستخدمها.", en: "WhatsApp, your site, or any channel you use." } },
       { title: { ar: "مراقبة وتحسين", en: "Monitor & tune" }, desc: { ar: "نراجع المحادثات الأولى ونضبط الردود قبل الإطلاق الكامل.", en: "We review early conversations and tune responses before full launch." } },
@@ -497,9 +500,9 @@ const servicesRaw: ServiceRaw[] = [
       ],
     },
     process: [
-      { title: { ar: "تحديد الأرقام المهمة فعلاً", en: "Identify the numbers that actually matter" }, desc: { ar: "مش كل رقم يستحق مكان في اللوحة.", en: "Not every metric deserves a place on the dashboard." } },
+      { title: { ar: "تحديد الأرقام المهمة فعلاً", en: "Identify the numbers that actually matter" }, desc: { ar: "ليس كل رقم يستحق مكاناً في اللوحة.", en: "Not every metric deserves a place on the dashboard." } },
       { title: { ar: "ربط المصادر", en: "Connect sources" }, desc: { ar: "نجمع البيانات من أنظمتك الحالية تلقائياً.", en: "We pull data automatically from your existing systems." } },
-      { title: { ar: "تصميم اللوحة", en: "Dashboard design" }, desc: { ar: "واجهة واضحة تتابعها في ثواني، مش تحليل معقد.", en: "A clear interface you can scan in seconds, not a complex analysis." } },
+      { title: { ar: "تصميم اللوحة", en: "Dashboard design" }, desc: { ar: "واجهة واضحة تتابعها في ثوانٍ، لا تحليلاً معقداً.", en: "A clear interface you can scan in seconds, not a complex analysis." } },
       { title: { ar: "تحديث لحظي", en: "Real-time updates" }, desc: { ar: "الأرقام بتتحدث تلقائياً بدون تدخل يدوي.", en: "Numbers refresh automatically with no manual intervention." } },
     ],
     faq: [
@@ -518,13 +521,13 @@ const servicesRaw: ServiceRaw[] = [
       en: "A fast site, wired into the system that actually runs your business",
     },
     heroDesc: {
-      ar: "مواقع وتطبيقات ويب سريعة قابلة للتوسع، مبنية على نفس فلسفة الأتمتة — مش موقع منفصل عن باقي أنظمتك.",
+      ar: "مواقع وتطبيقات ويب سريعة قابلة للتوسع، مبنية بنفس فلسفة الأتمتة — لا كموقع منفصل عن باقي أنظمتك.",
       en: "Fast, scalable websites and web apps built on the same automation philosophy — not a site disconnected from the rest of your systems.",
     },
     audience: {
       ar: [
-        "شركات عايزة موقع مش بس «واجهة» لكن مربوط فعلياً بالـ CRM والواتساب وأنظمة الحجز/الطلب.",
-        "شركات عندها موقع قديم بطيء أو مش بيحوّل زوار لعملاء.",
+        "شركات تريد موقعاً لا يقتصر دوره على «الواجهة»، بل يكون مرتبطاً فعلياً بالـ CRM والواتساب وأنظمة الحجز والطلبات.",
+        "شركات لديها موقع قديم بطيء لا يحوّل الزوار إلى عملاء فعليين.",
       ],
       en: [
         "Companies who want a site that's more than a facade — actually wired into CRM, WhatsApp, and booking/order systems.",
@@ -538,7 +541,7 @@ const servicesRaw: ServiceRaw[] = [
       { title: { ar: "الأداء والإطلاق", en: "Performance & launch" }, desc: { ar: "اختبار سرعة (Core Web Vitals) وتوافق الموبايل قبل الإطلاق.", en: "Speed testing (Core Web Vitals) and mobile compatibility before launch." } },
     ],
     faq: [
-      { q: { ar: "هل الموقع هيبقى بطيء زي مواقع الشركات التقليدية؟", en: "Will the site be slow like typical corporate sites?" }, a: { ar: "لأ، بنبني على معايير أداء حديثة (LCP أقل من 2.5 ثانية) من الأول.", en: "No — we build to modern performance standards (LCP under 2.5s) from the start." } },
+      { q: { ar: "هل سيكون الموقع بطيئاً كمواقع الشركات التقليدية؟", en: "Will the site be slow like typical corporate sites?" }, a: { ar: "لأ، بنبني على معايير أداء حديثة (LCP أقل من 2.5 ثانية) من الأول.", en: "No — we build to modern performance standards (LCP under 2.5s) from the start." } },
       { q: { ar: "هل ينفع أعمل تعديلات بنفسي بعد التسليم؟", en: "Can I make edits myself after handoff?" }, a: { ar: "حسب الأداة المستخدمة، بنوضح الجزء اللي تقدر تعدّله بنفسك من غير احتياج مبرمج.", en: "Depending on the tooling, we specify which parts you can edit yourself without needing a developer." } },
     ],
     relatedTag: "API",
