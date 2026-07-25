@@ -57,12 +57,12 @@ export function AboutPage() {
           </a>
         </section>
 
-        <section className="mt-16 relative rounded-3xl bg-[color:var(--surface-dark)] text-white p-8 sm:p-12 overflow-hidden">
+        <section className="mt-16 relative rounded-3xl bg-card text-card-foreground p-8 sm:p-12 overflow-hidden">
           <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full opacity-30 blur-3xl" style={{ background: "var(--accent)" }} aria-hidden="true" />
           <div className="relative">
-            <div className="font-mono text-xs text-white/60 uppercase tracking-widest">{d.about.nextSection}</div>
+            <div className="font-mono text-xs text-card-foreground/60 uppercase tracking-widest">{d.about.nextSection}</div>
             <h2 className="mt-3 font-display font-bold text-3xl sm:text-4xl leading-tight">{d.about.nextH2}</h2>
-            <p className="mt-4 text-white/70 leading-relaxed">{d.about.nextDesc}</p>
+            <p className="mt-4 text-card-foreground/70 leading-relaxed">{d.about.nextDesc}</p>
             <a href={`mailto:hello@aisolutions22.cloud?subject=${encodeURIComponent(d.contact.mailSubject)}`} className="mt-8 inline-flex items-center gap-2 h-12 px-6 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition">
               {d.about.nextCta}
               <ArrowLeft size={18} />

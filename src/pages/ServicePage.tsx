@@ -89,9 +89,9 @@ export function ServicePage({ slug }: { slug: string }) {
           </section>
         )}
 
-        <section className="mt-16 rounded-2xl bg-[color:var(--surface-dark)] text-white p-8 sm:p-10 text-center">
+        <section className="mt-16 rounded-2xl bg-card text-card-foreground p-8 sm:p-10 text-center">
           <h2 className="font-display font-bold text-2xl sm:text-3xl">{d.servicePage.readyH2}</h2>
-          <p className="mt-3 text-white/70 text-sm sm:text-base">{d.servicePage.readyDesc}</p>
+          <p className="mt-3 text-card-foreground/70 text-sm sm:text-base">{d.servicePage.readyDesc}</p>
           <a href={localizeHref("/#contact", locale)} className="mt-6 inline-flex items-center h-11 px-6 rounded-full bg-accent text-accent-foreground font-semibold hover:opacity-90 transition">
             {d.servicePage.readyCta}
           </a>
